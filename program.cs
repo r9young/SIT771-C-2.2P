@@ -1,35 +1,26 @@
-public class Account
+using System;
+
+namespace _2_2P
 {
-    private decimal _balance;
-    private string _name;
+    public class Program
+    {
+        public static void Main()
+        {
+            Account account = new Account("Jake's Account", 20000);
+            account.Print(); // Print initial details
+            account.Deposit(100); // Deposit 100
+            account.Print(); // Print details after deposit
+            account.Withdraw(5000); // Withdraw 5000
+            account.Print(); // Print details after withdrawal
 
-
-    // properties - provide read-only access to the private fields _balance 
-    public decimal Balance {
-        get { return _balance; }
-    }
-
-    // properties - provide read-only access to the private _name 
-    public string Name {
-        get { return _name; }
-    }
-
-    //  constructor - initializes these fields when a new Account object is created
-    public Account(string name, decimal startingBalance) {
-        _name = name;
-        _balance = startingBalance;
-    }
-
-    public void Deposit(decimal amountToAdd) {
-        _balance += amountToAdd;
-    }
-
-    public void Withdraw(decimal amountToWithdraw) {
-        _balance -= amountToWithdraw;
-    }
-
-
-    public void Print() {
-        Console.WriteLine($"Account Name: {Name}, Balance: {Balance}");
+            Account myAccount = new Account("Yang's Account", 10000); // Add Yang's account
+            myAccount.Print(); // Print Yang's account details
+            myAccount.Deposit(5000); // Deposit 5000 to Yang's account
+            myAccount.Print(); // Print details after deposit
+            myAccount.Deposit(10000); // Deposit 10000 more
+            myAccount.Print(); // Print details after deposit
+            myAccount.Withdraw(5000); // Withdraw 5000
+            myAccount.Print(); // Print details after withdrawal
+        }
     }
 }
